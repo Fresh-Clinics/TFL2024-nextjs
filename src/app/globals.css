@@ -1,0 +1,173 @@
+/* Tailwind base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom color scheme */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* General body styling with variables */
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 40px 10px;
+  padding: 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Tailwind custom utility class */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Calendar container */
+#calendar {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Event styling */
+.fc-event {
+  background-color: #eae6e3 !important;
+  color: white;
+  border: none;
+  position: relative; /* For positioning slots */
+}
+
+.fc-v-event .fc-event-main {
+  color: #142652 !important;
+}
+
+/* Event content padding */
+.fc-event-content {
+  padding: 5px;
+}
+
+/* Calendar toolbar title and header */
+.fc .fc-toolbar-title, .fc .fc-col-header-cell-cushion {
+  color: #0e4333 !important;
+}
+
+/* Primary button styling */
+.fc .fc-button-primary {
+  background-color: #0e4333 !important;
+  border-color: #0e4333 !important;
+}
+
+/* Event slots styling */
+.fc-event-slots {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 10px; /* Adjust font size */
+  font-weight: normal; /* Unbold the text */
+  color: #142652;
+}
+
+/* Hide slots for background events */
+.fc .fc-bg-event .fc-event-slots {
+  display: none;
+}
+
+/* No border for background events */
+.fc .fc-bg-event .fc-event-content {
+  border-top: none !important;
+}
+
+/* Tippy tooltip box styling */
+.tippy-box {
+  background: #eff0ed;
+  color: #142652;
+  max-width: 200px;
+  width: auto;
+  font-size: .8rem;
+  padding: .5em 1em;
+}
+
+.tippy-box[data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: #eff0ed;
+}
+
+/* Popup overlay styling */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Popup content styling */
+.popup-content {
+  background: white;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90%; /* Limit height */
+  overflow-y: auto; /* Make content scrollable */
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column; /* Separate scrollable content and fixed footer */
+  padding: 0px 20px;
+  border-radius: 4px;
+}
+
+.popup-content h3 {
+  margin-top: 0;
+}
+
+/* Close popup button */
+.close-popup {
+  position: sticky;
+  top: 10px;
+  right: 10px;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+/* Popup footer styling */
+.popup-footer {
+  margin-top: auto;
+  border-top: 1px solid #ddd;
+  font-size: 0.9rem;
+  position: sticky;
+  bottom: 0;
+  background: white;
+  padding: 15px;
+}
+
+/* Time grid slot height */
+.fc .fc-timegrid-slot {
+  height: 5em;
+}
+
+/* Background event styling */
+.fc .fc-bg-event {
+  background: #ebf7f475 !important;
+  color: #0e4333 !important;
+  opacity: unset;
+}
+
+/* Button margin fix for LTR direction */
+.fc-direction-ltr .fc-button-group > .fc-button:not(:last-child) {
+  margin-right: 10px;
+}
